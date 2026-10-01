@@ -8,7 +8,7 @@ import ExamDate from "./Pages/Onboarding/examDates.jsx";
 import SubjectSelection from "./Pages/Onboarding/subjectSelection.jsx";
 import PreparationLevel from "./Pages/Onboarding/preparationLevel.jsx";
 import DailyStudyHours from "./Pages/Onboarding/dailyStudyHours.jsx";
-import Dashboard from "./components/Dashboard/Dashboard.jsx";
+import Dashboard from "./components/Dashboard/dashboard.jsx";
 
 
 function App() {
