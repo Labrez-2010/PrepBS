@@ -1,0 +1,427 @@
+.onboarding-page {
+    min-height: 100vh;
+    width: 100%;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(116, 91, 255, 0.08),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(70, 120, 255, 0.06),
+            transparent 30%
+        ),
+        #f8f9fc;
+
+    color: #15171c;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+
+/* =========================================
+   BACKGROUND ORBS
+========================================= */
+
+.onboarding-orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(1px);
+}
+
+.onboarding-orb-one {
+    width: 430px;
+    height: 430px;
+
+    top: -250px;
+    right: -120px;
+
+    background: rgba(125, 92, 255, 0.07);
+}
+
+.onboarding-orb-two {
+    width: 360px;
+    height: 360px;
+
+    bottom: -240px;
+    left: -150px;
+
+    background: rgba(76, 124, 255, 0.06);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.onboarding-header {
+    width: 100%;
+
+    padding: 28px 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 5;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.onboarding-brand {
+    display: flex;
+    align-items: center;
+}
+
+.onboarding-logo {
+    width: 112px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.onboarding-progress {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.progress-current {
+    color: #15171c;
+}
+
+.progress-total {
+    color: #a3a7b0;
+}
+
+.progress-line {
+    width: 100px;
+    height: 4px;
+
+    border-radius: 999px;
+
+    background: #e5e7eb;
+
+    overflow: hidden;
+}
+
+.progress-line-active {
+    width: 16.66%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: #15171c;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.onboarding-main {
+    flex: 1;
+
+    width: min(760px, 90%);
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 2;
+
+    padding: 40px 0 70px;
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.welcome-label {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 13px;
+
+    border: 1px solid rgba(21, 23, 28, 0.08);
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.62);
+
+    backdrop-filter: blur(12px);
+
+    color: #777c86;
+
+    font-size: 10px;
+    font-weight: 750;
+
+    letter-spacing: 1.2px;
+}
+
+.welcome-label-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #15171c;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.onboarding-main h1 {
+    margin: 25px 0 0;
+
+    max-width: 700px;
+
+    font-size: clamp(46px, 7vw, 78px);
+
+    line-height: 0.98;
+
+    letter-spacing: -4.5px;
+
+    font-weight: 750;
+}
+
+.onboarding-main h1 span {
+    color: #747983;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.onboarding-description {
+    max-width: 520px;
+
+    margin: 27px 0 0;
+
+    color: #747983;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   START BUTTON
+========================================= */
+
+.start-onboarding-btn {
+    min-width: 190px;
+    height: 58px;
+
+    margin-top: 36px;
+
+    padding: 0 8px 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: #15171c;
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 650;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.start-onboarding-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 35px rgba(21, 23, 28, 0.17);
+}
+
+.start-onboarding-btn:active {
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   BUTTON ARROW
+========================================= */
+
+.start-arrow {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.11);
+
+    font-size: 19px;
+
+    transition: transform 0.2s ease;
+}
+
+.start-onboarding-btn:hover .start-arrow {
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   SMALL NOTE
+========================================= */
+
+.onboarding-time {
+    margin: 13px 0 0;
+
+    color: #a4a8b0;
+
+    font-size: 11px;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.onboarding-footer {
+    width: 100%;
+
+    padding: 22px 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 5;
+
+    color: #b1b5bd;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .onboarding-header {
+        padding: 22px 20px;
+    }
+
+    .onboarding-logo {
+        width: 95px;
+    }
+
+    .progress-line {
+        width: 60px;
+    }
+
+    .onboarding-main {
+        width: 88%;
+
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+
+    .onboarding-main h1 {
+        font-size: 48px;
+
+        letter-spacing: -2.8px;
+    }
+
+    .onboarding-description {
+        font-size: 14px;
+    }
+
+    .start-onboarding-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .onboarding-footer {
+        padding: 18px 20px;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .onboarding-main h1 {
+        font-size: 40px;
+    }
+
+    .welcome-label {
+        font-size: 9px;
+    }
+
+    .onboarding-description {
+        font-size: 13px;
+    }
+}

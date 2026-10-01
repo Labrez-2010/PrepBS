@@ -1,0 +1,538 @@
+.exam-date-page {
+    min-height: 100vh;
+    width: 100%;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 88% 8%,
+            rgba(120, 91, 255, 0.07),
+            transparent 26%
+        ),
+        radial-gradient(
+            circle at 5% 92%,
+            rgba(70, 120, 255, 0.05),
+            transparent 28%
+        ),
+        #f8f9fc;
+
+    color: #15171c;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+
+/* ================================
+   BACKGROUND
+================================ */
+
+.exam-date-orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.exam-date-orb-one {
+    width: 380px;
+    height: 380px;
+
+    top: -250px;
+    right: -120px;
+
+    background: rgba(120, 91, 255, 0.07);
+
+    filter: blur(2px);
+}
+
+.exam-date-orb-two {
+    width: 320px;
+    height: 320px;
+
+    bottom: -230px;
+    left: -130px;
+
+    background: rgba(70, 120, 255, 0.05);
+
+    filter: blur(2px);
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.exam-date-header {
+    width: 100%;
+
+    padding: 24px 5vw;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: center;
+
+    position: relative;
+    z-index: 5;
+}
+
+.exam-date-back {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(21, 23, 28, 0.08);
+
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    color: #555a63;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.exam-date-back:hover {
+    background: #ffffff;
+
+    transform: translateX(-2px);
+}
+
+.exam-date-logo {
+    width: 105px;
+
+    justify-self: center;
+}
+
+.exam-date-progress {
+    justify-self: end;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.exam-date-progress > span:first-child {
+    color: #15171c;
+}
+
+.exam-date-progress-total {
+    color: #a4a8b0;
+}
+
+.exam-date-progress-track {
+    width: 100px;
+    height: 4px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background: #e5e7eb;
+}
+
+.exam-date-progress-fill {
+    width: 66.66%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: #15171c;
+}
+
+
+/* ================================
+   MAIN
+================================ */
+
+.exam-date-main {
+    width: min(700px, 90%);
+
+    margin: 0 auto;
+
+    padding: 45px 0 60px;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ================================
+   HEADING
+================================ */
+
+.exam-date-heading {
+    text-align: center;
+
+    margin-bottom: 34px;
+}
+
+.exam-date-eyebrow {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    color: #8b8f98;
+
+    font-size: 10px;
+    font-weight: 750;
+
+    letter-spacing: 1.4px;
+}
+
+.exam-date-heading h1 {
+    margin: 0;
+
+    font-size: clamp(40px, 5vw, 58px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+    font-weight: 750;
+}
+
+.exam-date-heading h1 span {
+    color: #747983;
+}
+
+.exam-date-heading p {
+    max-width: 500px;
+
+    margin: 18px auto 0;
+
+    color: #777c86;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+
+/* ================================
+   DATE CARD
+================================ */
+
+.date-picker-card {
+    padding: 25px;
+
+    border: 1px solid rgba(21, 23, 28, 0.08);
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 15px 40px rgba(21, 23, 28, 0.04);
+}
+
+.date-card-top {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.calendar-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: #15171c;
+
+    color: #ffffff;
+
+    font-size: 23px;
+}
+
+.date-card-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #9a9ea6;
+
+    font-size: 9px;
+    font-weight: 750;
+
+    letter-spacing: 1.2px;
+}
+
+.date-card-top h2 {
+    margin: 0;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.2px;
+}
+
+
+/* ================================
+   DATE INPUT
+================================ */
+
+.date-input-container {
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eceef1;
+}
+
+.date-input-container label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #777c86;
+
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.date-input-container input {
+    width: 100%;
+    height: 54px;
+
+    padding: 0 15px;
+
+    border: 1px solid #e0e2e6;
+
+    border-radius: 14px;
+
+    outline: none;
+
+    background: #f8f9fb;
+
+    color: #15171c;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.date-input-container input:hover {
+    background: #ffffff;
+
+    border-color: #cfd2d8;
+}
+
+.date-input-container input:focus {
+    background: #ffffff;
+
+    border-color: #15171c;
+
+    box-shadow:
+        0 0 0 3px rgba(21, 23, 28, 0.05);
+}
+
+
+/* ================================
+   DAYS REMAINING
+================================ */
+
+.days-remaining {
+    margin-top: 14px;
+
+    padding: 17px 20px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    border: 1px solid rgba(21, 23, 28, 0.06);
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.days-number {
+    min-width: 55px;
+
+    color: #15171c;
+
+    font-size: 27px;
+    font-weight: 750;
+
+    letter-spacing: -1px;
+}
+
+.days-text {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+
+    font-size: 11px;
+}
+
+.days-text strong {
+    color: #15171c;
+}
+
+.days-text span {
+    color: #8b8f98;
+}
+
+
+/* ================================
+   ACTION
+================================ */
+
+.exam-date-action {
+    margin-top: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.exam-date-action > span {
+    color: #9a9ea6;
+
+    font-size: 11px;
+}
+
+.exam-date-continue {
+    min-width: 145px;
+    height: 52px;
+
+    padding: 0 8px 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: #e3e5e9;
+
+    color: #9a9ea6;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    cursor: not-allowed;
+}
+
+.exam-date-continue-active {
+    background: #15171c;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.exam-date-continue-active:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(21, 23, 28, 0.15);
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    .exam-date-header {
+        padding: 18px 20px;
+    }
+
+    .exam-date-logo {
+        width: 90px;
+    }
+
+    .exam-date-progress-track {
+        width: 55px;
+    }
+
+    .exam-date-main {
+        width: 90%;
+
+        padding-top: 30px;
+    }
+
+    .exam-date-heading h1 {
+        font-size: 41px;
+
+        letter-spacing: -2.5px;
+    }
+
+    .exam-date-heading p {
+        font-size: 13px;
+    }
+
+    .date-picker-card {
+        padding: 19px;
+    }
+
+    .date-card-top h2 {
+        font-size: 15px;
+    }
+
+    .exam-date-action {
+        flex-direction: column;
+
+        gap: 11px;
+    }
+
+    .exam-date-action > span {
+        text-align: center;
+    }
+
+    .exam-date-continue {
+        width: 100%;
+    }
+}

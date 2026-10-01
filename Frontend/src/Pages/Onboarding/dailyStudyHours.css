@@ -1,0 +1,369 @@
+* {
+    box-sizing: border-box;
+}
+
+.study-hours-page {
+    min-height: 100vh;
+    background: #f8f9fc;
+    color: #15171c;
+    position: relative;
+    overflow: hidden;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.study-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.study-orb-one {
+    width: 420px;
+    height: 420px;
+    background: rgba(180, 155, 255, 0.22);
+    top: -180px;
+    right: -100px;
+}
+
+.study-orb-two {
+    width: 350px;
+    height: 350px;
+    background: rgba(120, 190, 255, 0.18);
+    bottom: -160px;
+    left: -100px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.study-hours-header {
+    height: 82px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.study-hours-logo {
+    width: 112px;
+    height: auto;
+    object-fit: contain;
+}
+
+.study-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: #8a8d96;
+    font-weight: 600;
+}
+
+.study-progress span:first-child {
+    color: #15171c;
+}
+
+.progress-line {
+    width: 90px;
+    height: 4px;
+    border-radius: 20px;
+    background: #e4e5e9;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 100%;
+    height: 100%;
+    background: #15171c;
+    border-radius: inherit;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.study-hours-main {
+    min-height: calc(100vh - 82px);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    padding: 45px 20px 70px;
+}
+
+.study-hours-content {
+    width: 100%;
+    max-width: 720px;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.study-eyebrow {
+    margin: 0 0 16px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #858993;
+}
+
+.study-hours-content h1 {
+    margin: 0;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.04;
+    letter-spacing: -2.5px;
+    font-weight: 700;
+}
+
+.study-description {
+    margin: 22px 0 35px;
+    max-width: 550px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #737680;
+}
+
+/* =========================
+   STUDY OPTIONS
+========================= */
+
+.study-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.study-option {
+    min-height: 125px;
+    border: 1px solid #e4e5e9;
+    background: rgba(255, 255, 255, 0.72);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: left;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.study-option:hover {
+    transform: translateY(-3px);
+    border-color: #c9cad0;
+    box-shadow: 0 12px 30px rgba(20, 22, 30, 0.06);
+}
+
+.study-option.selected {
+    background: #15171c;
+    border-color: #15171c;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 35px rgba(20, 22, 30, 0.16);
+}
+
+.study-option-number {
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.study-option-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.study-option-info strong {
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.study-option-info span {
+    font-size: 11px;
+    color: #8b8e97;
+}
+
+.study-option.selected .study-option-info span {
+    color: #aeb1b9;
+}
+
+.study-option-check {
+    position: absolute;
+    display: none;
+}
+
+/* =========================
+   PREVIEW
+========================= */
+
+.commitment-preview {
+    min-height: 38px;
+    margin-top: 20px;
+    padding: 0 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    opacity: 0;
+    transform: translateY(5px);
+    transition: 0.25s ease;
+}
+
+.commitment-preview.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.commitment-preview span {
+    font-size: 12px;
+    color: #858893;
+}
+
+.commitment-preview strong {
+    font-size: 13px;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.study-actions {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.study-back {
+    border: none;
+    background: transparent;
+    color: #737680;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 12px 0;
+}
+
+.study-back:hover {
+    color: #15171c;
+}
+
+.study-finish {
+    min-width: 170px;
+    height: 52px;
+    padding: 0 22px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: #15171c;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.study-finish:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(20, 22, 30, 0.16);
+}
+
+.study-finish span {
+    font-size: 18px;
+}
+
+.study-finish:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .study-hours-header {
+        height: 70px;
+        padding: 0 20px;
+    }
+
+    .study-hours-logo {
+        width: 95px;
+    }
+
+    .study-progress {
+        font-size: 10px;
+    }
+
+    .progress-line {
+        width: 55px;
+    }
+
+    .study-hours-main {
+        padding: 35px 18px 50px;
+    }
+
+    .study-hours-content h1 {
+        font-size: 38px;
+        letter-spacing: -1.8px;
+    }
+
+    .study-description {
+        font-size: 14px;
+        margin-bottom: 28px;
+    }
+
+    .study-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .study-option {
+        min-height: 115px;
+        padding: 17px;
+        border-radius: 17px;
+    }
+
+    .study-option-number {
+        font-size: 24px;
+    }
+
+    .study-actions {
+        margin-top: 20px;
+    }
+
+    .study-finish {
+        min-width: 145px;
+        height: 49px;
+    }
+}

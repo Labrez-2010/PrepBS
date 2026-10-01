@@ -4,17 +4,28 @@ const bcrypt = require("bcryptjs");
 
 const jwtSecret = process.env.JWT_SECRET;
 
+
 // =========================
 // REGISTER
 // =========================
 
 async function registerUser(req, res) {
     try {
+
+        // ------------------------------------------
+        // Check JWT secret
+        // ------------------------------------------
+
         if (!jwtSecret) {
             return res.status(500).json({
                 message: "JWT secret is not configured"
             });
         }
+
+
+        // ------------------------------------------
+        // Get data from frontend
+        // ------------------------------------------
 
         const {
             name,
@@ -24,43 +35,92 @@ async function registerUser(req, res) {
             password
         } = req.body;
 
-        // Check if email already exists
-        const alreadyHaveProfile = await userModel.findOne({
-            email
-        });
 
-        if (alreadyHaveProfile) {
+        // ------------------------------------------
+        // Validate fields
+        // ------------------------------------------
+
+        if (
+            !name ||
+            !userClass ||
+            !school ||
+            !email ||
+            !password
+        ) {
+            return res.status(400).json({
+                message: "All fields are required"
+            });
+        }
+
+
+        // ------------------------------------------
+        // Check existing user
+        // ------------------------------------------
+
+        const existingUser =
+            await userModel.findOne({
+                email: email.toLowerCase()
+            });
+
+        if (existingUser) {
             return res.status(409).json({
                 message: "Account already exists"
             });
         }
 
+
+        // ------------------------------------------
         // Hash password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        // ------------------------------------------
 
+        const hashedPassword =
+            await bcrypt.hash(
+                password,
+                10
+            );
+
+
+        // ------------------------------------------
         // Create user
-        const user = await userModel.create({
-            name,
-            class: userClass,
-            school,
-            email,
-            password: hashedPassword
-        });
+        // ------------------------------------------
 
+        const user =
+            await userModel.create({
+                name,
+                class: userClass,
+                school,
+                email: email.toLowerCase(),
+                password: hashedPassword
+            });
+
+
+        // ------------------------------------------
         // Create JWT
-        const token = jwt.sign(
-            {
-                id: user._id
-            },
-            jwtSecret,
-            {
-                expiresIn: "7d"
-            }
-        );
+        // ------------------------------------------
+
+        const token =
+            jwt.sign(
+                {
+                    id: user._id
+                },
+                jwtSecret,
+                {
+                    expiresIn: "7d"
+                }
+            );
+
+
+        // ------------------------------------------
+        // Send response
+        // ------------------------------------------
 
         return res.status(201).json({
-            message: "Registered successfully",
-            token,
+
+            message:
+                "Registered successfully",
+
+            token: token,
+
             user: {
                 id: user._id,
                 name: user.name,
@@ -68,13 +128,19 @@ async function registerUser(req, res) {
                 school: user.school,
                 email: user.email
             }
+
         });
 
     } catch (error) {
-        console.error(error);
+
+        console.error(
+            "REGISTER ERROR:",
+            error
+        );
 
         return res.status(500).json({
-            message: "Internal server error"
+            message:
+                "Internal server error"
         });
     }
 }
@@ -86,54 +152,113 @@ async function registerUser(req, res) {
 
 async function loginUser(req, res) {
     try {
+
+        // ------------------------------------------
+        // Check JWT secret
+        // ------------------------------------------
+
         if (!jwtSecret) {
             return res.status(500).json({
-                message: "JWT secret is not configured"
+                message:
+                    "JWT secret is not configured"
             });
         }
+
+
+        // ------------------------------------------
+        // Get login data
+        // ------------------------------------------
 
         const {
             email,
             password
         } = req.body;
 
+
+        // ------------------------------------------
+        // Validate fields
+        // ------------------------------------------
+
+        if (!email || !password) {
+            return res.status(400).json({
+                message:
+                    "Email and password are required"
+            });
+        }
+
+
+        // ------------------------------------------
         // Find user
-        const user = await userModel.findOne({
-            email
-        });
+        // ------------------------------------------
+
+        const user =
+            await userModel.findOne({
+                email: email.toLowerCase()
+            });
+
+
+        // ------------------------------------------
+        // User not found
+        // ------------------------------------------
 
         if (!user) {
             return res.status(401).json({
-                message: "Invalid email or password"
+                message:
+                    "Invalid email or password"
             });
         }
 
+
+        // ------------------------------------------
         // Compare password
-        const isPasswordCorrect = await bcrypt.compare(
-            password,
-            user.password
-        );
+        // ------------------------------------------
+
+        const isPasswordCorrect =
+            await bcrypt.compare(
+                password,
+                user.password
+            );
+
+
+        // ------------------------------------------
+        // Wrong password
+        // ------------------------------------------
 
         if (!isPasswordCorrect) {
             return res.status(401).json({
-                message: "Invalid email or password"
+                message:
+                    "Invalid email or password"
             });
         }
 
+
+        // ------------------------------------------
         // Create JWT
-        const token = jwt.sign(
-            {
-                id: user._id
-            },
-            jwtSecret,
-            {
-                expiresIn: "7d"
-            }
-        );
+        // ------------------------------------------
+
+        const token =
+            jwt.sign(
+                {
+                    id: user._id
+                },
+                jwtSecret,
+                {
+                    expiresIn: "7d"
+                }
+            );
+
+
+        // ------------------------------------------
+        // Send response
+        // ------------------------------------------
 
         return res.status(200).json({
-            message: "Login successful",
-            token,
+
+            message:
+                "Login successful",
+
+            token: token,
+
             user: {
                 id: user._id,
                 name: user.name,
@@ -141,20 +266,62 @@ async function loginUser(req, res) {
                 school: user.school,
                 email: user.email
             }
+
         });
 
     } catch (error) {
-        console.error(error);
+
+        console.error(
+            "LOGIN ERROR:",
+            error
+        );
 
         return res.status(500).json({
-            message: "Internal server error"
+            message:
+                "Internal server error"
         });
     }
 }
 
 
+// =========================
+// LOGOUT
+// =========================
+
+async function logoutUser(req, res) {
+    try {
+
+        // ------------------------------------------
+        // JWT is stored on the client.
+        // The frontend will remove the token.
+        // ------------------------------------------
+
+        return res.status(200).json({
+            message:
+                "Logged out successfully"
+        });
+
+    } catch (error) {
+
+        console.error(
+            "LOGOUT ERROR:",
+            error
+        );
+
+        return res.status(500).json({
+            message:
+                "Internal server error"
+        });
+    }
+}
+
+
+// =========================
+// EXPORT
+// =========================
+
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    logoutUser
 };
-
