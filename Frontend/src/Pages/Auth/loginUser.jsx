@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./auth.css";
 
-const API_URL = "http://localhost:3000/api/auth";
-const ONBOARDING_API_URL = "http://localhost:3000/api/onboarding";
+const API_URL = `${import.meta.env.VITE_API_URL}/api/auth`;
+const ONBOARDING_API_URL =
+    `${import.meta.env.VITE_API_URL}/api/onboarding`;
 
 export default function LoginUser() {
     const navigate = useNavigate();

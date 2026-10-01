@@ -3,11 +3,10 @@ import "./dashboard.css";
 import StudyClock from "./StudyClock";
 
 const ONBOARDING_API_URL =
-    "http://localhost:3000/api/onboarding";
+    `${import.meta.env.VITE_API_URL}/api/onboarding`;
 
 const STUDY_SESSION_API_URL =
-    "http://localhost:3000/api/study-sessions";
-
+    `${import.meta.env.VITE_API_URL}/api/study-sessions`;
 
 function Dashboard() {
 

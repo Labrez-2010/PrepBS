@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const STUDY_SESSION_API_URL =
-    "http://localhost:3000/api/study-sessions";
+    `${import.meta.env.VITE_API_URL}/api/study-sessions`;
 
 
 const STUDY_MODES = {
