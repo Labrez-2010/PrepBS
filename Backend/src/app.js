@@ -13,10 +13,10 @@ const app = express();
 // ==========================================
 
 app.use(
-        cors({
-            origin: "http://localhost:5173",
-            credentials: true
-        })
+    cors({
+        origin: "https://prep-bs.vercel.app",
+        credentials: true
+    })
 );
 
 app.use(express.json());
