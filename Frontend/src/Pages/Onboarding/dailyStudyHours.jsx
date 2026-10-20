@@ -305,17 +305,17 @@ function DailyStudyHours() {
                 <img
                     src={prepbsLogo}
                     alt="PrepBS"
-                    className="study-hours-logo"
+                    className="onboarding-logo"
                 />
 
 
-                <div className="study-progress">
+                <div className="onboarding-progress">
 
-                    <span>06</span>
+                    <span className="progress-current">06</span>
 
                     <div className="progress-line">
 
-                        <div className="progress-fill"></div>
+                        <div className="progress-total"></div>
 
                     </div>
 
@@ -331,14 +331,9 @@ function DailyStudyHours() {
 
                 <div className="study-hours-content">
 
-                    <p className="study-eyebrow">
-                        YOUR COMMITMENT
-                    </p>
-
-
-                    <h1>
+                    <h1 className="study-heading">
                         How much time can
-                        <br />
+                        
                         you give PrepBS?
                     </h1>
 
@@ -351,7 +346,7 @@ function DailyStudyHours() {
 
 
                     {/* Study Options */}
-                    <div className="study-options">
+                    <div className="study-option-grid">
 
                         {studyOptions.map(
                             (option) => (
@@ -391,7 +386,7 @@ function DailyStudyHours() {
                                             {option.title}
                                         </strong>
 
-                                        <span>
+                                        <span className="study-option-subtitle">
                                             {option.subtitle}
                                         </span>
 
@@ -414,43 +409,26 @@ function DailyStudyHours() {
                     </div>
 
 
-                    {/* Commitment Preview */}
-                    <div
-                        className={
-                            `commitment-preview ${
-                                selectedHours
-                                    ? "visible"
-                                    : ""
-                            }`
-                        }
-                    >
+            {/* Commitment Preview */}
+            <div
+                className={`commitment-preview ${
+                    selectedHours !== null ? "visible" : ""
+                }`}
+            >
+                {selectedHours !== null && (
+                    <>
+                        <span>Daily commitment</span>
 
-                        {selectedHours && (
-
-                            <>
-
-                                <span>
-                                    Daily commitment
-                                </span>
-
-                                <strong>
-
-                                    {selectedHours === 6
-                                        ? "6+ hours"
-                                        : `${selectedHours} hour${
-                                            selectedHours > 1
-                                                ? "s"
-                                                : ""
-                                        }`
-                                    }
-
-                                </strong>
-
-                            </>
-
-                        )}
-
-                    </div>
+                        <strong>
+                            {selectedHours === 6
+                                ? "6+ hours"
+                                : `${selectedHours} ${
+                                    selectedHours > 1 ? "hours" : "hour"
+                                }`}
+                        </strong>
+                    </>
+                )}
+            </div>
 
 
                     {/* Actions */}
@@ -468,7 +446,7 @@ function DailyStudyHours() {
 
                             disabled={loading}
                         >
-                            ← Back
+                            ←
                         </button>
 
 

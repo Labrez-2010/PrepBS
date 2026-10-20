@@ -12,7 +12,8 @@ function Onboarding() {
     };
 
     return (
-        <div className="onboarding-page">
+        <div className="Onboarding-background">
+            <div className="onboarding-page">
 
             {/* Background decoration */}
             <div className="onboarding-orb onboarding-orb-one"></div>
@@ -32,11 +33,8 @@ function Onboarding() {
                 <div className="onboarding-progress">
                     <span className="progress-current">01</span>
 
-                    <div className="progress-line">
-                        <div className="progress-line-active"></div>
-                    </div>
 
-                    <span className="progress-total">06</span>
+                    <span className="progress-total">.....06</span>
                 </div>
 
             </header>
@@ -46,10 +44,13 @@ function Onboarding() {
 
                 <div className="welcome-label">
                     <span className="welcome-label-dot"></span>
-                    PERSONALIZE YOUR PREPARATION
+                    PERSONALIZE YOUR 
+                </div>
+                <div className="welcome-label-end">
+                    PREPARATION
                 </div>
 
-                <h1>
+                <h1 className="onboarding-prep">
                     Let's build your
                     <span> preparation plan.</span>
                 </h1>
@@ -89,6 +90,7 @@ function Onboarding() {
 
             </footer>
 
+        </div>
         </div>
     );
 }

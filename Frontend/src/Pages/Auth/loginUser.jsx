@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./auth.css";
+import "./login.css";
+import { div } from "framer-motion/client";
 
 const API_URL = `${import.meta.env.VITE_API_URL}/api/auth`;
 const ONBOARDING_API_URL =
@@ -194,7 +195,8 @@ export default function LoginUser() {
 
 
     return (
-        <div className="auth-page">
+        <div className="auth-Background">
+            <div className="auth-page">
 
             <main className="auth-container">
 
@@ -230,16 +232,16 @@ export default function LoginUser() {
                     >
 
                         <div className="input-group">
-
+{/* 
                             <label htmlFor="email">
                                 Email
-                            </label>
+                            </label> */}
 
                             <input
                                 id="email"
                                 name="email"
                                 type="email"
-                                placeholder="you@example.com"
+                                placeholder="Your Email"
                                 value={formData.email}
                                 onChange={handleChange}
                                 autoComplete="email"
@@ -251,9 +253,9 @@ export default function LoginUser() {
 
                         <div className="input-group">
 
-                            <label htmlFor="password">
+                            {/* <label htmlFor="password">
                                 Password
-                            </label>
+                            </label> */}
 
                             <input
                                 id="password"
@@ -304,6 +306,7 @@ export default function LoginUser() {
 
             </main>
 
+        </div>
         </div>
     );
 }

@@ -77,7 +77,7 @@ function ExamDate() {
 
                 <button
                     type="button"
-                    className="exam-date-back"
+                    className="onboarding-back-btn"
                     onClick={handleBack}
                     aria-label="Go back"
                 >
@@ -87,19 +87,15 @@ function ExamDate() {
                 <img
                     src={prepbsLogo}
                     alt="PrepBS"
-                    className="exam-date-logo"
+                    className="onboarding-logo"
                 />
 
-                <div className="exam-date-progress">
+                <div className="onboarding-progress">
 
-                    <span>04</span>
+                    <span className="progress-current">04</span>
 
-                    <div className="exam-date-progress-track">
-                        <div className="exam-date-progress-fill"></div>
-                    </div>
-
-                    <span className="exam-date-progress-total">
-                        06
+                    <span className="progress-total">
+                        .....06
                     </span>
 
                 </div>
@@ -110,10 +106,6 @@ function ExamDate() {
             <main className="exam-date-main">
 
                 <section className="exam-date-heading">
-
-                    <span className="exam-date-eyebrow">
-                        STEP 04 · TIMELINE
-                    </span>
 
                     <h1>
                         When is your
@@ -179,12 +171,12 @@ function ExamDate() {
                         <div className="days-text">
                             <strong>
                                 {daysRemaining === 1
-                                    ? "day"
-                                    : "days"}
+                                    ? "Day"
+                                    : "Days"}
                             </strong>
 
                             <span>
-                                remaining until your exam
+                            ... remaining until your exam
                             </span>
                         </div>
 
@@ -194,7 +186,7 @@ function ExamDate() {
                 {/* Action */}
                 <div className="exam-date-action">
 
-                    <span>
+                    <span className="exam-date-status" >
                         {examDate
                             ? "Your timeline is ready"
                             : "Choose a date to continue"}
@@ -202,7 +194,7 @@ function ExamDate() {
 
                     <button
                         type="button"
-                        className={`exam-date-continue ${
+                        className={`exam-date-btn ${
                             examDate
                                 ? "exam-date-continue-active"
                                 : ""

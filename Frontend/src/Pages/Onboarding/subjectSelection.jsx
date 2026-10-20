@@ -375,7 +375,7 @@ function SubjectSelection() {
 
                 <button
                     type="button"
-                    className="subject-back-btn"
+                    className="onboarding-back-btn"
                     onClick={handleBack}
                     aria-label="Go back"
                 >
@@ -385,19 +385,16 @@ function SubjectSelection() {
                 <img
                     src={prepbsLogo}
                     alt="PrepBS"
-                    className="subject-logo"
+                    className="onboarding-logo"
                 />
 
-                <div className="subject-progress">
+                <div className="onboarding-progress">
 
-                    <span>04</span>
+                    <span className="progress-current">04</span>
 
-                    <div className="subject-progress-track">
-                        <div className="subject-progress-fill"></div>
-                    </div>
 
-                    <span className="subject-progress-total">
-                        06
+                    <span className="progress-total">
+                        .....06
                     </span>
 
                 </div>
@@ -408,10 +405,6 @@ function SubjectSelection() {
             <main className="subject-main">
 
                 <section className="subject-heading">
-
-                    <span className="subject-eyebrow">
-                        STEP 04 · FOCUS
-                    </span>
 
                     <h1>
                         What do you want
@@ -508,7 +501,7 @@ function SubjectSelection() {
                 {/* Action */}
                 <div className="subject-action">
 
-                    <span>
+                    <span className="subject-selection-status">
                         {selectedSubject
                             ? "Subject selected"
                             : "Choose one subject to continue"}

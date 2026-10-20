@@ -207,7 +207,7 @@ function ExamSelection() {
             <header className="exam-selection-header">
 
                 <button
-                    className="exam-back-btn"
+                    className="onboarding-back-btn"
                     onClick={handleBack}
                     aria-label="Go back"
                 >
@@ -217,17 +217,14 @@ function ExamSelection() {
                 <img
                     src={prepbsLogo}
                     alt="PrepBS"
-                    className="exam-selection-logo"
+                    className="onboarding-logo"
                 />
 
-                <div className="exam-selection-progress">
+                <div className="onboarding-progress">
                     <span>03</span>
 
-                    <div className="exam-progress-track">
-                        <div className="exam-progress-fill"></div>
-                    </div>
 
-                    <span className="exam-progress-total">06</span>
+                    <span className="progress-total">.....06</span>
                 </div>
 
             </header>
@@ -238,7 +235,7 @@ function ExamSelection() {
                 <section className="exam-selection-heading">
 
                     <span className="exam-step-label">
-                        STEP 03 · {categoryNames[selectedCategory] || "EXAM"}
+                        {categoryNames[selectedCategory] || "EXAM"}
                     </span>
 
                     <h1>
@@ -260,7 +257,8 @@ function ExamSelection() {
                         ⌕
                     </span>
 
-                    <input
+                    <input 
+                    className="exam-search-input"
                         type="text"
                         value={search}
                         onChange={(event) =>
@@ -342,15 +340,13 @@ function ExamSelection() {
                     ) : (
                         <div className="exam-empty">
 
-                            <div className="exam-empty-icon">
-                                ?
-                            </div>
 
-                            <h2>
+
+                            <h2 className="exam-empty-heading">
                                 We couldn't find that exam
                             </h2>
 
-                            <p>
+                            <p className="exam-empty-description">
                                 Try a different search or choose
                                 another category.
                             </p>
@@ -363,7 +359,7 @@ function ExamSelection() {
                 {/* Bottom */}
                 <div className="exam-selection-action">
 
-                    <span>
+                    <span className="exam-selection-status">
                         {selectedExam
                             ? "Exam selected"
                             : `${filteredExams.length} exams available`}
@@ -379,8 +375,8 @@ function ExamSelection() {
                         disabled={!selectedExam}
                         onClick={handleContinue}
                     >
-                        <span>Continue</span>
-                        <span>→</span>
+                        <span> Continue→ </span>
+                        {/* <span>→</span> */}
                     </button>
 
                 </div>

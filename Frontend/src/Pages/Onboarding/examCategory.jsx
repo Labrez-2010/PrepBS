@@ -78,7 +78,7 @@ function ExamCategory() {
             <header className="category-header">
 
                 <button
-                    className="category-back-btn"
+                    className="onboarding-back-btn"
                     onClick={handleBack}
                     aria-label="Go back"
                 >
@@ -88,20 +88,17 @@ function ExamCategory() {
                 <img
                     src="/src/assets/prepbs-logo.png"
                     alt="PrepBS"
-                    className="category-logo"
+                    className="onboarding-logo"
                 />
 
-                <div className="category-progress">
-                    <span className="category-progress-current">
+                <div className="onboarding-progress">
+                    <span className="progress-current">
                         02
                     </span>
 
-                    <div className="category-progress-track">
-                        <div className="category-progress-fill"></div>
-                    </div>
 
-                    <span className="category-progress-total">
-                        06
+                    <span className="progress-total">
+                        .....06
                     </span>
                 </div>
 
@@ -111,14 +108,11 @@ function ExamCategory() {
             <main className="category-main">
 
                 <div className="category-heading">
-
-                    <span className="category-eyebrow">
-                        STEP 02
-                    </span>
+  
 
                     <h1>
                         What are you
-                        <span> preparing for?</span>
+                        <span className="heading-end"> preparing for?</span>
                     </h1>
 
                     <p>
@@ -209,8 +203,8 @@ function ExamCategory() {
                         disabled={!selectedCategory}
                         onClick={handleContinue}
                     >
-                        <span>Continue</span>
-                        <span>→</span>
+                        <span >Continue→ </span>
+                        {/* <span>→</span> */}
                     </button>
 
                 </div>

@@ -1,0 +1,370 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://ik.imagekit.io/fki69qvsk/ChatGPT%20Image%20Oct%204,%202026,%2004_28_46%20PM.png?updatedAt=1791111904199");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* =========================
+   INPUT AUTOFILL
+========================= */
+
+.register-input-group input:-webkit-autofill,
+.register-input-group input:-webkit-autofill:hover,
+.register-input-group input:-webkit-autofill:focus,
+.register-input-group input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: #000 !important;
+    background: transparent !important;
+    transition: background-color 9999s ease-in-out 0s;
+}
+/* .register-background{
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://ik.imagekit.io/fki69qvsk/ChatGPT%20Image%20Oct%204,%202026,%2004_28_46%20PM.png?updatedAt=1791111904199");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+} */
+
+
+/* =========================
+   REGISTER PAGE
+========================= */
+
+.register-page {
+    width: min(100%, 600px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.register-container {
+    width: min(100%, 550px);
+}
+
+/* =========================
+   REGISTER CARD
+========================= */
+
+.register-card {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px 15px;
+    border-radius: 30px;
+
+    background: #ffffff41;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.register-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+}
+
+.register-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.register-eyebrow {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.register-header {
+    width: 100%;
+    text-align: center;
+}
+
+.register-header h1 {
+    text-align: center;
+    margin-bottom: 1px;
+}
+
+.register-subtitle {
+    text-align: center;
+    color: grey;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   REGISTER FORM
+========================= */
+
+.register-form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+}
+
+
+/* =========================
+   FORM ROWS
+========================= */
+
+.register-form-row {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* =========================
+   INPUT GROUP
+========================= */
+
+.register-input-group {
+    min-width: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: none;
+    border: none;
+    outline: none;
+
+    padding: 4px;
+    border-radius: 10px;
+}
+
+
+/* =========================
+   INPUT FIELDS
+========================= */
+
+.register-input-group input {
+    width: 100%;
+    height: 30px;
+
+    background-color: #00000007;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+
+    padding: 4px;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.register-input-group input:focus {
+    background-color: #ffffff30;
+    outline: 1px solid #ffffff70;
+}
+
+
+/* =========================
+   PASSWORD FIELDS
+========================= */
+
+.register-input-group #register-password,
+.register-input-group #register-confirm-password {
+    width: min(100%, 250px);
+    height: 30px;
+}
+
+
+/* =========================
+   CLASS SELECT
+========================= */
+
+.register-input-group #register-class {
+    width: 167px;
+    height: 30px;
+
+    background-color: #00000007;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+
+    padding: 4px;
+    color: #000;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+
+/* =========================
+   ERROR MESSAGE
+========================= */
+
+div .register-message-register-error {
+    text-align: center;
+    margin-top: 4px;
+
+    font-size: 13px;
+    color: rgba(255, 0, 0, 0.65);
+}
+
+
+/* =========================
+   SUCCESS MESSAGE
+========================= */
+
+div .register-message-register-success {
+    text-align: center;
+    margin-top: 4px;
+
+    font-size: 13px;
+    color: #16803c;
+}
+
+
+/* =========================
+   CREATE ACCOUNT BUTTON
+========================= */
+
+.register-primary-button {
+    display: block;
+    align-self: center;
+    margin: 0 auto;
+
+    width: 160px;
+    height: 35px;
+
+    background-color: rgba(0, 0, 0, 0.042);
+    color: rgba(0, 0, 0, 0.849);
+
+    font-family: inherit;
+    font-size: 13px;
+    text-align: center;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.register-primary-button:hover {
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+.register-primary-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+/* =========================
+   LOGIN / REGISTER SWITCH
+========================= */
+
+.register-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 13px;
+    text-align: center;
+}
+
+.register-switch a {
+    color: grey;
+}
+
+
+/* =========================
+   PRIVACY TEXT
+========================= */
+
+.register-privacy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 6px;
+    font-size: 10px;
+    text-align: center;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .register-card {
+        padding: 20px 12px;
+        border-radius: 22px;
+    }
+
+    .register-header h1 {
+        font-size: 26px;
+    }
+
+    .register-subtitle {
+        font-size: 14px;
+    }
+
+    .register-form-row {
+        gap: 8px;
+    }
+
+    .register-input-group #register-class {
+        width: 100%;
+    }
+
+    .register-privacy {
+        line-height: 1.5;
+    }
+}

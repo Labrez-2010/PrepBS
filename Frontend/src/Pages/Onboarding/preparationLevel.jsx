@@ -76,7 +76,7 @@ function PreparationLevel() {
 
                 <button
                     type="button"
-                    className="preparation-back-btn"
+                    className="onboarding-back-btn"
                     onClick={handleBack}
                     aria-label="Go back"
                 >
@@ -86,19 +86,16 @@ function PreparationLevel() {
                 <img
                     src={prepbsLogo}
                     alt="PrepBS"
-                    className="preparation-logo"
+                    className="onboarding-logo"
                 />
 
-                <div className="preparation-progress">
+                <div className="onboarding-progress">
 
-                    <span>05</span>
+                    <span className="progress-current">05</span>
 
-                    <div className="preparation-progress-track">
-                        <div className="preparation-progress-fill"></div>
-                    </div>
 
-                    <span className="preparation-progress-total">
-                        06
+                    <span className="progress-total">
+                        .....06
                     </span>
 
                 </div>
@@ -110,9 +107,6 @@ function PreparationLevel() {
 
                 <section className="preparation-heading">
 
-                    <span className="preparation-eyebrow">
-                        STEP 05 · YOUR STARTING POINT
-                    </span>
 
                     <h1>
                         Where are you
@@ -195,7 +189,7 @@ function PreparationLevel() {
                 {/* Action */}
                 <div className="preparation-action">
 
-                    <span>
+                    <span className="preparation-selection-status">
                         {selectedLevel
                             ? "Your starting point is set"
                             : "Choose the option that describes you"}
@@ -203,7 +197,7 @@ function PreparationLevel() {
 
                     <button
                         type="button"
-                        className={`preparation-continue ${
+                        className={`preparation-continue-btn ${
                             selectedLevel
                                 ? "preparation-continue-active"
                                 : ""
