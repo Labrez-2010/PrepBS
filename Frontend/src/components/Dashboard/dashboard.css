@@ -1,99 +1,75 @@
-
 /* =========================================
-   PREPBS DASHBOARD
-   Sky-inspired glassmorphism design
+   PREPBS — DASHBOARD
+   Sky Blue + Glass Theme
 ========================================= */
 
-.dashboard,
-.dashboard * {
-    box-sizing: border-box;
-}
-
 .dashboard {
-    --text-primary: #172b40;
-    --text-secondary: #647b91;
-    --glass-background: rgba(255, 255, 255, 0.55);
-    --glass-border: rgba(255, 255, 255, 0.72);
-    --blue: #73b9e8;
-    --blue-dark: #397eaf;
-    --purple: #b7a7f1;
-
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 38px 6%;
     position: relative;
     isolation: isolate;
-    align-self: stretch;
-    flex: 1 0 auto;
-    width: 100%;
-    min-width: 0;
-    min-height: 100vh;
-    margin: 0;
-    padding: 44px clamp(20px, 5vw, 76px) 60px;
 
-    color: var(--text-primary);
-    font-family: Inter, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172b3a;
 
-    background-image:
+    background:
         linear-gradient(
             180deg,
-            rgba(199, 235, 255, 0.20),
-            rgba(255, 255, 255, 0.12) 55%,
-            rgba(232, 225, 255, 0.18)
+            rgba(205, 239, 255, 0.28),
+            rgba(255, 255, 255, 0.32)
         ),
-        url("https://ik.imagekit.io/fki69qvsk/ChatGPT%20Image%20Oct%204,%202026,%2004_28_46%20PM.png?updatedAt=1791111904199");
+        url("https://ik.imagekit.io/fki69qvsk/ChatGPT%20Image%20Oct%205%2C%202026%2C%2006_21_56%20PM.png");
 
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     background-attachment: fixed;
-
-    overflow-wrap: anywhere;
+    background-repeat: no-repeat;
 }
 
 /* =========================================
-   DASHBOARD HEADER
+   HEADER
 ========================================= */
 
 .dashboard-header {
-    width: 100%;
-    max-width: 1320px;
-    margin: 0 auto 32px;
-
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     gap: 24px;
+
+    max-width: 1250px;
+    margin: 0 auto 28px;
 }
 
-.dashboard-label {
-    margin-bottom: 12px;
-
-    color: #397fae;
+.dashboard-label,
+.card-label {
+    margin: 0 0 10px;
     font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
+    color: #507b99;
 }
 
 .dashboard-header h1 {
     margin: 0;
-
-    color: #19364f;
-    font-size: clamp(26px, 3.1vw, 39px);
-    font-weight: 750;
+    font-size: clamp(25px, 3vw, 36px);
     line-height: 1.2;
-    letter-spacing: -1.2px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    color: #172b3a;
 }
 
 .dashboard-subtitle {
-    margin-top: 12px;
-
-    color: #5e768c;
+    margin: 10px 0 0;
     font-size: 14px;
     line-height: 1.7;
+    color: #526c80;
 }
 
 /* =========================================
-   PROFILE BUTTON AND MENU
+   PROFILE
 ========================================= */
 
 .profile-wrapper {
@@ -103,401 +79,482 @@
 }
 
 .profile-circle {
-    width: 49px;
-    height: 49px;
-
+    width: 46px;
+    height: 46px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
-    border: 1px solid rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.85);
     border-radius: 50%;
+    background: rgba(255, 255, 255, 0.72);
+    color: #245a7d;
 
-    background: linear-gradient(
-        145deg,
-        #bce8ff,
-        #d8d0ff
-    );
-
-    box-shadow:
-        0 5px 18px rgba(68, 117, 158, 0.13),
-        inset 0 1px 2px rgba(255, 255, 255, 0.9);
-
-    color: #254d70;
-    font-size: 18px;
-    font-weight: 750;
+    font-size: 17px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(68, 124, 158, 0.12);
 
     cursor: pointer;
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .profile-circle:hover {
+    background: #ffffff;
     transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 22px rgba(68, 117, 158, 0.2),
-        inset 0 1px 2px rgba(255, 255, 255, 0.9);
-}
-
-.profile-circle:focus-visible,
-.logout-button:focus-visible {
-    outline: 3px solid rgba(57, 126, 175, 0.5);
-    outline-offset: 4px;
 }
 
 .profile-menu {
     position: absolute;
     top: calc(100% + 12px);
     right: 0;
+    width: 230px;
+    padding: 17px;
 
-    width: min(280px, calc(100vw - 40px));
-    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 17px;
+    background: rgba(248, 253, 255, 0.96);
+    box-shadow: 0 12px 35px rgba(56, 104, 135, 0.16);
 
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    border-radius: 18px;
-
-    background: rgba(255, 255, 255, 0.88);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-
-    box-shadow: 0 15px 40px rgba(47, 84, 120, 0.15);
-
-    animation: profile-menu-enter 0.18s ease-out;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
 .profile-menu-info {
     display: flex;
     flex-direction: column;
-    gap: 7px;
-
+    gap: 6px;
     min-width: 0;
 }
 
 .profile-menu-info strong {
-    color: #203b53;
-    font-size: 15px;
+    font-size: 14px;
+    color: #233e52;
     overflow-wrap: anywhere;
 }
 
 .profile-menu-info span {
-    color: var(--text-secondary);
     font-size: 12px;
-    line-height: 1.5;
+    color: #6d8495;
     overflow-wrap: anywhere;
 }
 
 .profile-menu-divider {
     height: 1px;
-    margin: 17px 0;
-
-    background: rgba(76, 115, 151, 0.13);
+    margin: 14px 0;
+    background: rgba(104, 151, 181, 0.2);
 }
 
 .logout-button {
     width: 100%;
-    padding: 11px 14px;
+    padding: 10px 12px;
 
-    border: 1px solid rgba(219, 116, 116, 0.2);
+    border: 1px solid #e5caca;
     border-radius: 10px;
+    background: #fff6f5;
+    color: #a44444;
 
-    background: rgba(255, 235, 235, 0.65);
-
-    color: #a74444;
-    font: inherit;
     font-size: 13px;
-    font-weight: 650;
-    text-align: left;
-
+    font-weight: 600;
     cursor: pointer;
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
+    transition: background 0.2s ease;
 }
 
 .logout-button:hover {
-    background: rgba(255, 220, 220, 0.85);
-    transform: translateY(-1px);
-}
-
-@keyframes profile-menu-enter {
-    from {
-        opacity: 0;
-        transform: translateY(-5px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    background: #ffe9e7;
 }
 
 /* =========================================
-   GLASS CARDS — SHARED STYLE
-========================================= */
-
-.dashboard-card {
-    min-width: 0;
-    padding: 28px;
-
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
-
-    background: var(--glass-background);
-
-    -webkit-backdrop-filter: blur(18px);
-    backdrop-filter: blur(18px);
-
-    box-shadow:
-        0 10px 35px rgba(70, 111, 151, 0.075),
-        inset 0 1px 0 rgba(255, 255, 255, 0.65);
-
-    transition:
-        transform 0.22s ease,
-        box-shadow 0.22s ease,
-        border-color 0.22s ease;
-}
-
-.dashboard-card:hover {
-    transform: translateY(-3px);
-
-    border-color: rgba(255, 255, 255, 0.95);
-
-    box-shadow:
-        0 16px 38px rgba(70, 111, 151, 0.11),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-
-.card-label {
-    margin-bottom: 20px;
-
-    color: #66829b;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1.7px;
-    line-height: 1.5;
-    text-transform: uppercase;
-}
-
-.dashboard-card h3 {
-    margin: 0 0 20px;
-
-    color: #23415b;
-    font-size: 19px;
-    font-weight: 700;
-    line-height: 1.4;
-    letter-spacing: -0.35px;
-}
-
-/* =========================================
-   OVERVIEW GRID
+   OVERVIEW
 ========================================= */
 
 .dashboard-overview {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+    gap: 22px;
 
-    width: 100%;
-    max-width: 1320px;
-    margin: 0 auto 26px;
+    max-width: 1250px;
+    margin: 0 auto 24px;
 }
 
 /* =========================================
-   CURRENT EXAM CARD
+   SHARED GLASS CARDS
 ========================================= */
 
-.exam-card {
-    position: relative;
-    overflow: hidden;
+.dashboard-card,
+.clock-section {
+    min-width: 0;
+    box-sizing: border-box;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.69),
-            rgba(225, 243, 255, 0.57)
-        );
+    border: 1px solid rgba(255, 255, 255, 0.78);
+    border-radius: 23px;
+
+    background: rgba(245, 251, 255, 0.62);
+
+    box-shadow:
+        0 8px 28px rgba(73, 132, 169, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.exam-card::after {
-    content: "";
-    position: absolute;
-    top: -65px;
-    right: -55px;
-
-    width: 180px;
-    height: 180px;
-
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 50%;
-
-    background: rgba(154, 213, 250, 0.13);
-    pointer-events: none;
+.dashboard-card {
+    padding: 26px;
 }
+
+.dashboard-card:hover,
+.clock-section:hover {
+    border-color: rgba(255, 255, 255, 0.98);
+    box-shadow:
+        0 12px 32px rgba(73, 132, 169, 0.11),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.dashboard-card .card-label,
+.clock-section .card-label {
+    margin-bottom: 17px;
+}
+
+/* =========================================
+   EXAM CARD
+========================================= */
 
 .exam-card h2 {
-    position: relative;
-    z-index: 1;
-
-    margin: 0 0 25px;
-
-    color: #234f72;
-    font-size: clamp(23px, 2.4vw, 30px);
-    font-weight: 750;
-    line-height: 1.35;
-    letter-spacing: -0.7px;
+    margin: 0 0 24px;
+    font-size: clamp(22px, 2.5vw, 29px);
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    color: #1d4058;
+    overflow-wrap: anywhere;
 }
 
 .exam-info {
     display: flex;
-    align-items: flex-start;
     justify-content: space-between;
+    align-items: flex-start;
     gap: 16px;
 
     padding: 13px 0;
-
-    border-top: 1px solid rgba(94, 139, 177, 0.12);
+    border-top: 1px solid rgba(102, 153, 183, 0.17);
 }
 
 .exam-info span {
-    color: #71879b;
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 1.5;
+    color: #668095;
 }
 
 .exam-info strong {
     max-width: 60%;
-
-    color: #2b4b65;
     font-size: 13px;
-    font-weight: 700;
-    line-height: 1.6;
+    line-height: 1.5;
+    font-weight: 600;
     text-align: right;
+    color: #284a61;
+    overflow-wrap: anywhere;
 }
 
 /* =========================================
-   DAILY STUDY PROGRESS
+   DAILY TARGET
 ========================================= */
 
 .progress-card {
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.69),
-            rgba(235, 230, 255, 0.55)
-        );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .progress-time {
     display: flex;
-    align-items: baseline;
     flex-wrap: wrap;
+    align-items: baseline;
     gap: 9px;
-
-    margin: 8px 0 24px;
+    margin: 10px 0 25px;
 }
 
 .progress-time strong {
-    color: #2e5c83;
-    font-size: clamp(32px, 3.5vw, 43px);
-    font-weight: 750;
-    line-height: 1.2;
+    font-size: clamp(32px, 4vw, 43px);
+    font-weight: 700;
     letter-spacing: -1.5px;
-    font-variant-numeric: tabular-nums;
+    color: #265f82;
 }
 
 .progress-time span {
-    color: #7a83a0;
     font-size: 15px;
-    font-weight: 550;
+    color: #70899c;
 }
 
-.progress-bar {
+.progress-bar,
+.clock-daily-progress-bar {
     width: 100%;
-    height: 11px;
+    height: 9px;
     overflow: hidden;
-
-    border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 20px;
-
-    background: rgba(100, 135, 169, 0.12);
+    background: rgba(132, 179, 205, 0.22);
 }
 
-.progress-fill {
+.progress-fill,
+.clock-daily-progress-fill {
     height: 100%;
-    max-width: 100%;
     border-radius: inherit;
 
     background: linear-gradient(
         90deg,
-        #81c8f2 0%,
-        #91baf2 55%,
-        #b6a6f0 100%
+        #8bcbea,
+        #8faee9
     );
 
-    box-shadow: 0 1px 8px rgba(111, 162, 222, 0.2);
-
-    transition: width 0.5s ease;
+    transition: width 0.45s ease;
 }
 
 .progress-text {
-    margin-top: 16px;
-
-    color: #6b8197;
-    font-size: 12px;
-    line-height: 1.7;
+    margin: 16px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #607d91;
 }
 
 /* =========================================
-   STUDY CLOCK AREA
+   STUDY CLOCK
 ========================================= */
 
-.dashboard > .study-clock,
-.dashboard > .study-clock-container,
-.dashboard > .study-clock-card {
-    width: 100%;
-    max-width: 1320px;
-    margin: 0 auto 26px;
+.clock-section {
+    max-width: 1250px;
+    margin: 0 auto 24px;
+    padding: 28px 32px;
 }
 
-/*
-   StudyClock has its own JSX and CSS.
-   These rules intentionally avoid changing
-   its internal timer controls or behavior.
-*/
+.clock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 26px;
+}
+
+.clock-header .card-label {
+    margin-bottom: 9px;
+}
+
+.clock-header h2 {
+    margin: 0;
+    font-size: clamp(21px, 2.5vw, 27px);
+    line-height: 1.35;
+    letter-spacing: -0.5px;
+    color: #203f55;
+}
+
+.mode-selector {
+    max-width: 100%;
+    padding: 11px 36px 11px 14px;
+
+    border: 1px solid rgba(119, 165, 193, 0.35);
+    border-radius: 12px;
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.68);
+    color: #365970;
+
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.mode-selector:focus {
+    border-color: #80b9dc;
+    box-shadow: 0 0 0 3px rgba(128, 185, 220, 0.15);
+}
+
+.mode-selector:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
 
 /* =========================================
-   BOTTOM CARDS
+   CLOCK CONTAINER
+========================================= */
+
+.clock-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 34px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 21px;
+    background: rgba(222, 242, 253, 0.36);
+}
+
+.clock {
+    width: 100%;
+    max-width: 430px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 32px 24px 25px;
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 25px;
+    background: rgba(250, 253, 255, 0.65);
+
+    box-shadow: 0 6px 22px rgba(72, 132, 167, 0.07);
+}
+
+.clock-mode {
+    margin-bottom: 15px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #5785a2;
+}
+
+.clock-time {
+    font-size: clamp(54px, 8vw, 76px);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -3px;
+    font-variant-numeric: tabular-nums;
+    color: #254e69;
+}
+
+.clock-status {
+    margin-top: 13px;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.6;
+    color: #71899a;
+}
+
+/* =========================================
+   CLOCK BUTTONS
+========================================= */
+
+.clock-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    width: 100%;
+    margin-top: 26px;
+}
+
+.start-button,
+.reset-button {
+    min-height: 43px;
+    padding: 12px 22px;
+    border-radius: 12px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.start-button {
+    border: 1px solid #6ea9d0;
+    background: #76b6df;
+    color: #102f43;
+}
+
+.start-button:hover {
+    background: #65a8d5;
+    transform: translateY(-1px);
+}
+
+.reset-button {
+    border: 1px solid rgba(111, 157, 185, 0.35);
+    background: rgba(255, 255, 255, 0.72);
+    color: #42677e;
+}
+
+.reset-button:hover {
+    border-color: #8cbad5;
+    background: #ffffff;
+}
+
+.start-button:focus-visible,
+.reset-button:focus-visible,
+.profile-circle:focus-visible,
+.logout-button:focus-visible {
+    outline: 3px solid rgba(77, 153, 205, 0.4);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   COMPLETED SESSIONS
+========================================= */
+
+.session-count {
+    margin-top: 23px;
+    padding: 8px 14px;
+
+    border: 1px solid rgba(139, 185, 209, 0.2);
+    border-radius: 30px;
+    background: rgba(221, 241, 251, 0.48);
+
+    font-size: 12px;
+    text-align: center;
+    color: #587c92;
+}
+
+/* =========================================
+   CLOCK DAILY PROGRESS
+========================================= */
+
+.clock-daily-progress {
+    width: 100%;
+    margin-top: 28px;
+}
+
+.clock-daily-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 11px;
+}
+
+.clock-daily-progress-header span {
+    font-size: 12px;
+    color: #6b8497;
+}
+
+.clock-daily-progress-header strong {
+    font-size: 12px;
+    font-weight: 600;
+    color: #355b73;
+}
+
+/* =========================================
+   BOTTOM SECTION
 ========================================= */
 
 .dashboard-bottom {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: stretch;
-    gap: 24px;
+    gap: 22px;
 
-    width: 100%;
-    max-width: 1320px;
+    max-width: 1250px;
     margin: 0 auto;
 }
 
-.dashboard-bottom > .dashboard-card:first-child {
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.67),
-            rgba(228, 242, 255, 0.58)
-        );
-}
-
-.dashboard-bottom > .dashboard-card:last-child {
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.67),
-            rgba(239, 233, 255, 0.58)
-        );
+.dashboard-bottom .dashboard-card h3 {
+    margin: 0 0 21px;
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    color: #284b62;
 }
 
 /* =========================================
@@ -505,28 +562,25 @@
 ========================================= */
 
 .empty-state {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
 
-    min-height: 75px;
-    padding: 18px;
+    max-width: 100%;
+    padding: 12px 17px;
 
-    border: 1px solid rgba(255, 255, 255, 0.78);
-    border-radius: 15px;
+    border: 1px solid rgba(127, 178, 206, 0.28);
+    border-radius: 12px;
+    background: rgba(219, 241, 252, 0.58);
 
-    background: rgba(255, 255, 255, 0.37);
-
-    color: #426d93;
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 13px;
     line-height: 1.5;
-    text-align: center;
+    font-weight: 600;
+    color: #426e8a;
     overflow-wrap: anywhere;
 }
 
 /* =========================================
-   SUBJECT LIST
+   SUBJECTS
 ========================================= */
 
 .subject-list {
@@ -541,171 +595,136 @@
     justify-content: center;
 
     max-width: 100%;
-    min-height: 39px;
-    padding: 9px 16px;
+    padding: 10px 15px;
 
-    border: 1px solid rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(130, 170, 211, 0.3);
     border-radius: 12px;
 
     background: linear-gradient(
         135deg,
-        rgba(216, 240, 255, 0.8),
-        rgba(230, 225, 255, 0.76)
+        rgba(224, 241, 255, 0.82),
+        rgba(239, 233, 255, 0.72)
     );
 
-    color: #426687;
     font-size: 13px;
-    font-weight: 650;
-    line-height: 1.5;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #405f7b;
     overflow-wrap: anywhere;
 
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .subject-item:hover {
-    transform: translateY(-2px);
-
-    background: linear-gradient(
-        135deg,
-        rgba(197, 231, 253, 0.95),
-        rgba(215, 207, 255, 0.9)
-    );
-
-    box-shadow: 0 5px 14px rgba(89, 128, 175, 0.1);
+    border-color: rgba(110, 156, 203, 0.55);
+    background: linear-gradient(135deg, #d6ebfb, #e9e1fb);
 }
 
 /* =========================================
-   LOADING AND ERROR STATES
+   LOADING / ERROR
 ========================================= */
 
 .dashboard-state {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
     min-height: 100vh;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 24px;
 
     background:
         linear-gradient(
             180deg,
-            rgba(201, 237, 255, 0.82),
-            rgba(255, 255, 255, 0.72),
-            rgba(231, 225, 255, 0.8)
-        );
+            rgba(205, 239, 255, 0.35),
+            rgba(255, 255, 255, 0.5)
+        ),
+        url("https://ik.imagekit.io/fki69qvsk/ChatGPT%20Image%20Oct%205%2C%202026%2C%2006_21_56%20PM.png");
 
-    color: #315c7e;
+    background-size: cover;
+    background-position: center;
+
     font-size: 15px;
-    font-weight: 600;
-    line-height: 1.7;
     text-align: center;
+    color: #355b73;
 }
 
 .dashboard-state.error {
-    color: #a94444;
+    color: #a44444;
 }
 
 /* =========================================
-   TABLETS
+   TABLET RESPONSIVENESS
 ========================================= */
 
 @media (max-width: 900px) {
     .dashboard {
-        padding: 35px 28px 45px;
-    }
-
-    .dashboard-header {
-        margin-bottom: 27px;
+        padding: 30px 4%;
+        background-attachment: scroll;
     }
 
     .dashboard-overview,
     .dashboard-bottom {
-        gap: 18px;
+        gap: 16px;
     }
 
     .dashboard-card {
-        padding: 23px;
-        border-radius: 21px;
+        padding: 22px;
     }
 
-    .exam-card h2 {
-        font-size: 25px;
+    .clock-section {
+        padding: 24px;
+    }
+
+    .clock-container {
+        padding: 25px 16px;
     }
 }
 
 /* =========================================
-   MOBILE PHONES
+   MOBILE RESPONSIVENESS
 ========================================= */
 
 @media (max-width: 600px) {
     .dashboard {
-        padding: 27px 16px 35px;
-        background-attachment: scroll;
+        padding: 24px 16px;
     }
 
     .dashboard-header {
         align-items: flex-start;
         gap: 12px;
-        margin-bottom: 25px;
-    }
-
-    .dashboard-label {
-        margin-bottom: 10px;
-        font-size: 10px;
-        letter-spacing: 1.5px;
+        margin-bottom: 23px;
     }
 
     .dashboard-header h1 {
-        max-width: 420px;
-        font-size: clamp(25px, 6vw, 32px);
-        line-height: 1.25;
-        letter-spacing: -0.7px;
+        font-size: 26px;
+        letter-spacing: -0.5px;
     }
 
     .dashboard-subtitle {
-        max-width: 360px;
-        margin-top: 10px;
         font-size: 13px;
     }
 
+    .dashboard-label {
+        font-size: 10px;
+        letter-spacing: 1.2px;
+    }
+
     .profile-circle {
-        width: 43px;
-        height: 43px;
-        font-size: 16px;
+        width: 40px;
+        height: 40px;
     }
 
     .dashboard-overview,
     .dashboard-bottom {
         grid-template-columns: minmax(0, 1fr);
-        gap: 17px;
-    }
-
-    .dashboard-overview {
-        margin-bottom: 20px;
-    }
-
-    .dashboard > .study-clock,
-    .dashboard > .study-clock-container,
-    .dashboard > .study-clock-card {
-        margin-bottom: 20px;
+        gap: 16px;
+        margin-bottom: 18px;
     }
 
     .dashboard-card {
-        padding: 23px 21px;
-        border-radius: 21px;
-    }
-
-    .dashboard-card:hover {
-        transform: none;
-    }
-
-    .card-label {
-        margin-bottom: 17px;
-        font-size: 10px;
+        padding: 22px;
+        border-radius: 19px;
     }
 
     .exam-card h2 {
@@ -713,87 +732,107 @@
     }
 
     .progress-time strong {
-        font-size: 35px;
+        font-size: 37px;
     }
 
-    .progress-time {
-        margin-bottom: 20px;
+    .clock-section {
+        padding: 21px 16px;
+        margin-bottom: 18px;
+        border-radius: 19px;
     }
 
-    .dashboard-card h3 {
-        font-size: 18px;
+    .clock-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 22px;
     }
 
-    .empty-state {
-        min-height: 65px;
-    }
-}
-
-/* =========================================
-   SMALL PHONES
-========================================= */
-
-@media (max-width: 380px) {
-    .dashboard {
-        padding: 22px 12px 28px;
+    .mode-selector {
+        width: 100%;
     }
 
-    .dashboard-header {
+    .clock-container {
+        padding: 14px 10px;
+        border-radius: 17px;
+    }
+
+    .clock {
+        padding: 29px 15px 23px;
+        border-radius: 19px;
+    }
+
+    .clock-time {
+        font-size: clamp(53px, 15vw, 68px);
+        letter-spacing: -2px;
+    }
+
+    .clock-actions {
         gap: 9px;
     }
 
-    .dashboard-header h1 {
-        font-size: 24px;
+    .start-button,
+    .reset-button {
+        padding: 12px 15px;
     }
 
-    .dashboard-subtitle {
-        font-size: 12px;
-    }
-
-    .profile-circle {
-        width: 39px;
-        height: 39px;
-    }
-
-    .dashboard-card {
-        padding: 20px 17px;
-        border-radius: 18px;
+    .clock-daily-progress-header {
+        align-items: flex-start;
     }
 
     .exam-info {
-        gap: 10px;
+        gap: 12px;
     }
 
-    .exam-info span,
     .exam-info strong {
-        font-size: 12px;
+        max-width: 58%;
     }
 
-    .progress-time strong {
-        font-size: 31px;
+    .dashboard-bottom .dashboard-card h3 {
+        font-size: 19px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+    .dashboard {
+        padding: 20px 12px;
     }
 
-    .progress-time span {
-        font-size: 13px;
+    .dashboard-header h1 {
+        font-size: 23px;
     }
 
-    .subject-item {
-        padding: 8px 12px;
+    .dashboard-card {
+        padding: 18px;
+    }
+
+    .clock-section {
+        padding: 17px 12px;
+    }
+
+    .clock-time {
+        font-size: 49px;
+    }
+
+    .start-button,
+    .reset-button {
+        padding: 11px 12px;
         font-size: 12px;
     }
 }
 
 /* =========================================
-   ACCESSIBILITY
+   REDUCED MOTION
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
     .dashboard *,
-    .dashboard *::before,
-    .dashboard *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+    .dashboard-state * {
+        transition: none !important;
+        animation: none !important;
     }
 }
