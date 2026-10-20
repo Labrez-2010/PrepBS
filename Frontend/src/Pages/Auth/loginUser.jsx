@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
-import { div } from "framer-motion/client";
+
 
 const API_URL = `${import.meta.env.VITE_API_URL}/api/auth`;
 const ONBOARDING_API_URL =
