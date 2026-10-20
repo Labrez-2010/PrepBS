@@ -1,14 +1,19 @@
 # PrepBS
 
-> **A personalized study management system for students.**
-
-PrepBS is a full-stack study-management application designed to help students organize their preparation, track study sessions, monitor progress, and build consistent study habits.
-
-It combines **personalized planning, focused study sessions, preparation tracking, and performance data** into one platform.
-
----
 
 ## 🚀 What is PrepBS?
+
+
+> **A personalized study management Dashboard for students.**
+
+PrepBS is a dashboard that is made for students. It can be used to manage your studies, like when you are preparing for an exam or have too many tasks to do.
+
+When you sit to study, then you go on your desk and open a book and start a study sessions ............
+
+You study on your own, hana? You put a timer in anything else on the mobile, like a stopwatch. After 5 minutes or 10 minutes, you think you take a break, and after that break, you don't know how much time you spend scrolling Instagram reels. Then you see your time is getting wasted, but PrepBS is helping you to manage your study sessions, monitor your targeted exams, and more features in that interactive dashboard like you did not need to scattered your study laps  
+---
+
+
 
 Students often use separate tools for:
 
@@ -25,9 +30,20 @@ The application collects a student's preparation information during onboarding a
 
 ---
 
-## ✨ Current Features
+## ✨ Current Features - Tech Used explain 
+
 
 ### 🔐 Authentication
+When a user comes to the website, they can see the register page. We make that page using React JS and CSS. When a user clicks on Register, they enter their details. After that, it is successful, and all the data is saved into the database, the MongoDB database. The password has been hash using bcryptjs.  
+  
+Then the user clicks to log in. While logging in, we can use JSON Web Token to generate a token, and we can store that token in local storage. Through that, we can use it for authorization. The frontend sends an authorization bearer token, and Express authentication middlewares verify the tokens. Then the user gets identified and protected API access.
+
+Now our authentication flow is like that:
+1. The user did the registration.
+2. The user did the login.
+3. We hashed the password with `bcryptjs`.
+4. We generated a token with the help of JSON Web Token-based authentication.
+That's the system we are using. We make the protected backend routes, and we can present our token in `local storage`. Then the user can automatically authenticate through the Authorization header.
 
 * User registration
 * User login
@@ -37,20 +53,19 @@ The application collects a student's preparation information during onboarding a
 * Token persistence using `localStorage`
 * Automatic user authentication through the `Authorization` header
 
-### 🧭 Personalized Onboarding
+### 🧭 Onboarding
 
-Students provide their preparation information through a multi-step onboarding flow.
+There is then our onboarding page. On the onboarding page, the user can share their information regarding:  
+  
+\- their targeted exam category  
+\- exam  
+\- exam date  
+\- selected subject  
+\- preparation level  
+\- what time, like daily study hours, the student can give  
+This helps them to create a dashboard. Also, we can create the same with the help of React JS and CSS, and all the data is stored in the MongoDB database .
 
-Current onboarding data includes:
 
-* Exam category
-* Exam
-* Exam date
-* Selected subject(s)
-* Preparation level
-* Daily study hours
-
-The data is stored in MongoDB and connected to the authenticated user.
 
 ### 📊 Dashboard
 
@@ -63,7 +78,7 @@ The dashboard provides personalized information such as:
 * Selected subjects
 * Preparation level
 * Daily study target
-* Study progress
+* Study program
 
 ### ⏱️ Study Clock
 
@@ -75,11 +90,12 @@ PrepBS includes a study-session system with multiple modes:
 | Focus      |  50 min | 10 min |
 | Deep Focus |  90 min | 15 min |
 
-*The Pomodoro duration may be temporarily shortened during development/testing.
 
-Completed study sessions are sent to the backend and stored in MongoDB.
-
-The dashboard can retrieve today's total study time, allowing daily progress to persist after refreshing the application.
+thats the one of the main features of PrepBs this help user to manage their study session 
+and break between a study when one session is over then automatically break timer is start then when
+break over , then automatically next session is start 
+and all study session is stored in Database ans visible to user 
+ans session continues until target daily study is not over 
 
 ---
 
@@ -149,7 +165,7 @@ The dashboard can retrieve today's total study time, allowing daily progress to 
 
 ---
 
-## 🔐 Authentication Flow
+## 🔐 Authentication Flow chart 
 
 PrepBS uses **JWT authentication with Bearer tokens**.
 
@@ -182,7 +198,7 @@ The backend does not trust the frontend to identify the user. Protected routes o
 
 ---
 
-## 📚 Onboarding Flow
+## 📚 Onboarding Flow chart 
 
 ```text
 Register / Login
@@ -208,7 +224,7 @@ The onboarding information becomes the foundation for the student's personalized
 
 ---
 
-## ⏱️ Study Session Architecture
+## ⏱️ Study Session Architecture 
 
 When a student completes a study session:
 
@@ -253,12 +269,13 @@ PrepBS/
 │   │   │   │   └── registerUser.jsx
 │   │   │   │
 │   │   │   └── Onboarding/
-│   │   │       ├── category/
-│   │   │       ├── exam/
-│   │   │       ├── date/
-│   │   │       ├── subject/
-│   │   │       ├── level/
+│   │   │       ├── examCategory/
+│   │   │       ├── examSelection/
+│   │   │       ├── examDate/
+│   │   │       ├── subjectSelection/
+│   │   │       ├── preparationLevel/
 │   │   │       └── dailyStudyHours/
+│   │   │       └── onboarding
 │   │   │
 │   │   ├── assets/
 │   │   └── App.jsx
@@ -266,26 +283,27 @@ PrepBS/
 │   └── package.json
 │
 ├── backend/
-│   ├── controllers/
-│   │   ├── auth.controller.js
-│   │   ├── onboarding.controller.js
-│   │   └── studySession.controller.js
-│   │
-│   ├── middleware/
-│   │   └── auth.middleware.js
-│   │
-│   ├── models/
-│   │   ├── user.model.js
-│   │   ├── onboarding.model.js
-│   │   └── studySession.model.js
-│   │
-│   ├── routes/
-│   │   ├── auth.route.js
-│   │   ├── onboarding.route.js
-│   │   └── studySession.route.js
-│   │
-│   ├── app.js
-│   └── package.json
+│   └── src/
+│       ├── controllers/
+│       │   └──auth.controller.js
+│       │    └── onboarding.controller.js
+│       │   └── studySession.controller.js
+│       │
+│       ├── middleware/
+│       │    └── auth.middleware.js
+│       │
+│       ├── models/
+│       │   └── user.model.js
+│       │   └── onboarding.model.js
+│       │   └── studySession.model.js
+│       │
+│       ├── routes/
+│       │    └──  auth.route.js
+│       │    └──  onboarding.route.js
+│       │    └── studySession.route.js
+│       │
+│       └── App.jsx
+│   
 │
 └── README.md
 ```
