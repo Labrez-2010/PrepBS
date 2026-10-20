@@ -66,7 +66,8 @@ function ExamDate() {
     };
 
     return (
-        <div className="exam-date-page">
+        <div className="onboarding-background">
+            <div className="exam-date-page">
 
             {/* Background */}
             <div className="exam-date-orb exam-date-orb-one"></div>
@@ -210,6 +211,7 @@ function ExamDate() {
 
             </main>
 
+        </div>
         </div>
     );
 }

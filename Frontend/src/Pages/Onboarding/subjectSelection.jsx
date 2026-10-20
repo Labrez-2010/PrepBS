@@ -364,7 +364,8 @@ function SubjectSelection() {
     };
 
     return (
-        <div className="subject-page">
+        <div className="onboarding-background">
+            <div className="subject-page">
 
             {/* Background */}
             <div className="subject-orb subject-orb-one"></div>
@@ -525,6 +526,7 @@ function SubjectSelection() {
 
             </main>
 
+        </div>
         </div>
     );
 }

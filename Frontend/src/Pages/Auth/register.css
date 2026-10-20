@@ -5,68 +5,37 @@
 }
 
 html,
-body {
+body,
+#root {
     width: 100%;
     min-height: 100%;
+    margin: 0;
 }
 
 body {
     font-family: sans-serif;
-    min-height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 20px;
-
-    width: 100%;
-    height: 100vh;
-    background-image: url("https://ik.imagekit.io/fki69qvsk/ChatGPT%20Image%20Oct%204,%202026,%2004_28_46%20PM.png?updatedAt=1791111904199");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
-
-
-/* =========================
-   INPUT AUTOFILL
-========================= */
-
-.register-input-group input:-webkit-autofill,
-.register-input-group input:-webkit-autofill:hover,
-.register-input-group input:-webkit-autofill:focus,
-.register-input-group input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-    box-shadow: 0 0 0 1000px transparent inset !important;
-    -webkit-text-fill-color: #000 !important;
-    background: transparent !important;
-    transition: background-color 9999s ease-in-out 0s;
-}
-/* .register-background{
-    width: 100%;
-    height: 100vh;
-    background-image: url("https://ik.imagekit.io/fki69qvsk/ChatGPT%20Image%20Oct%204,%202026,%2004_28_46%20PM.png?updatedAt=1791111904199");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-} */
-
 
 /* =========================
    REGISTER PAGE
 ========================= */
 
 .register-page {
-    width: min(100%, 600px);
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
+    background-image: url("https://ik.imagekit.io/fki69qvsk/ChatGPT%20Image%20Oct%204,%202026,%2004_28_46%20PM.png?updatedAt=1791111904199");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-
+    
 .register-container {
     width: min(100%, 550px);
 }

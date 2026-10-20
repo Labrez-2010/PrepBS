@@ -68,7 +68,8 @@ function ExamCategory() {
     };
 
     return (
-        <div className="category-page">
+        <div className="onboarding-background" >
+            <div className="category-page">
 
             {/* Background */}
             <div className="category-orb category-orb-one"></div>
@@ -211,6 +212,7 @@ function ExamCategory() {
 
             </main>
 
+        </div>
         </div>
     );
 }

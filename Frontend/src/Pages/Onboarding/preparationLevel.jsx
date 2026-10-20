@@ -66,7 +66,8 @@ function PreparationLevel() {
     };
 
     return (
-        <div className="preparation-level-page">
+        <div className="onboarding-background">
+            <div className="preparation-level-page">
 
             <div className="preparation-orb preparation-orb-one"></div>
             <div className="preparation-orb preparation-orb-two"></div>
@@ -213,6 +214,7 @@ function PreparationLevel() {
 
             </main>
 
+        </div>
         </div>
     );
 }

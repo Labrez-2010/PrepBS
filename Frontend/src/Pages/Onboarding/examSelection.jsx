@@ -198,7 +198,8 @@ function ExamSelection() {
     };
 
     return (
-        <div className="exam-selection-page">
+        <div className="onboarding-background">
+            <div className="exam-selection-page">
 
             <div className="exam-selection-orb exam-selection-orb-one"></div>
             <div className="exam-selection-orb exam-selection-orb-two"></div>
@@ -383,6 +384,7 @@ function ExamSelection() {
 
             </main>
 
+        </div>
         </div>
     );
 }

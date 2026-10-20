@@ -1,69 +1,29 @@
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 html,
-body {
+body,
+#root {
     width: 100%;
     min-height: 100%;
+    margin: 0;
 }
 
 body {
     font-family: sans-serif;
+}
+
+.auth-page {
     min-height: 100vh;
+    width: 100%;
+    padding: 20px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 20px;
-
-    width: 100%;
-    height: 100vh;
     background-image: url("https://ik.imagekit.io/fki69qvsk/ChatGPT%20Image%20Oct%204,%202026,%2004_28_46%20PM.png?updatedAt=1791111904199");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
-
-
-/* =========================
-   AUTOFILL
-========================= */
-
-.input-group input:-webkit-autofill,
-.input-group input:-webkit-autofill:hover,
-.input-group input:-webkit-autofill:focus,
-.input-group input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-    box-shadow: 0 0 0 1000px transparent inset !important;
-    -webkit-text-fill-color: #000 !important;
-    background: transparent !important;
-}
-
-/* .auth-Background{
-    width: 100%;
-    height: 100vh;
-    background-image: url("https://ik.imagekit.io/fki69qvsk/ChatGPT%20Image%20Oct%204,%202026,%2004_28_46%20PM.png?updatedAt=1791111904199");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; 
-}*/
-/* ==================
-    LOGIN PAGE
-=========================  */
-
-.auth-page {
-    width: min(100%, 600px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
 }
 
 .auth-container {

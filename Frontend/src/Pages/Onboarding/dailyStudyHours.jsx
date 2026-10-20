@@ -292,7 +292,8 @@ function DailyStudyHours() {
     // ==========================================
 
     return (
-        <div className="study-hours-page">
+        <div className="onboarding-background">
+            <div className="study-hours-page">
 
             {/* Background */}
             <div className="study-orb study-orb-one"></div>
@@ -478,6 +479,7 @@ function DailyStudyHours() {
 
             </main>
 
+        </div>
         </div>
     );
 }

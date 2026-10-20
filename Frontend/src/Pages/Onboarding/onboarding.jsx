@@ -12,7 +12,7 @@ function Onboarding() {
     };
 
     return (
-        <div className="Onboarding-background">
+        <div className="onboarding-background">
             <div className="onboarding-page">
 
             {/* Background decoration */}
